@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Casino</title>
+  <link rel="stylesheet" href="diseño.css" />
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <nav class="navbar">
+    <div class="logo">🎮 Mini Casino</div>
+    <div class="fichas-movil">Fichas: <span id="fichas">5</span></div>
+  </nav>
+
+  <main class="container">
+    <div class="chips">Fichas: <span id="fichas-desktop">5</span></div>
+
+    <!-- Menú principal -->
+    <div class="menu visible" id="menu">
+      <button class="btn" onclick="mostrarJuego('tragamonedas')">🎰 Tragamonedas</button>
+      <button class="btn" onclick="mostrarJuego('ruleta')">🎡 Ruleta Básica</button>
+      <button class="btn" onclick="mostrarJuego('apuestas')">💰 Apuestas</button>
+      <button class="btn" onclick="mostrarJuego('ruletaVisual')">🎯 Ruleta Visual</button>
+      <button class="btn secondary" onclick="reiniciarJuego()">🔄 Reiniciar fichas</button>
+    </div>
+
+    <!-- Tragamonedas -->
+    <div class="tragamonedas" id="tragamonedas">
+      <div class="slots">
+        <div class="slot" id="slot1">1</div>
+        <div class="slot" id="slot2">1</div>
+        <div class="slot" id="slot3">1</div>
+      </div>
+      <button class="btn" onclick="tirarTragamonedas()" id="btnTraga">Tirar</button>
+      <div class="message" id="msgTraga"></div>
+      <p>🎯 Si ganás: +3 fichas</p>
+      <button class="btn secondary" onclick="volverMenu()">🔙 Volver al menú</button>
+    </div>
+
+    <!-- Ruleta Básica -->
+    <div class="ruleta" id="ruleta">
+      <div class="ruleta-display">
+        <div class="ruleta-number" id="ruletaResultado">🎯</div>
+      </div>
+      <input type="number" id="apuesta" placeholder="Elegí un número del 1 al 10" min="1" max="10" />
+      <button class="btn" onclick="tirarRuleta()">Girar</button>
+      <div class="message" id="msgRuleta"></div>
+      <p>🎯 Si acertás: +5 fichas</p>
+      <button class="btn secondary" onclick="volverMenu()">🔙 Volver al menú</button>
+    </div>
+
+    <!-- Apuestas -->
+    <div class="apuestas" id="apuestas">
+      <input type="number" id="cantidadApostar" placeholder="¿Cuántas fichas querés apostar?" min="1" />
+      <select id="multiplicador">
+        <option value="2">x2</option>
+        <option value="3">x3</option>
+        <option value="4">x4</option>
+      </select>
+      <button class="btn" onclick="apostar()">Apostar</button>
+      <div class="message" id="msgApuesta"></div>
+      <p>🎲 Probabilidades: x2 = 50% | x3 = 33% | x4 = 25%</p>
+      <button class="btn secondary" onclick="volverMenu()">🔙 Volver al menú</button>
+    </div>
+
+
+<div class="ruletaVisual" id="ruletaVisual">
+  <div class="ruleta-container">
+    <div class="ruleta" id="ruletaGiratoria">
+      <!-- 10 sectores -->
+      <div class="segmento" style="--i:0;">1</div>
+      <div class="segmento" style="--i:1;">2</div>
+      <div class="segmento" style="--i:2;">3</div>
+      <div class="segmento" style="--i:3;">4</div>
+      <div class="segmento" style="--i:4;">5</div>
+      <div class="segmento" style="--i:5;">6</div>
+      <div class="segmento" style="--i:6;">7</div>
+      <div class="segmento" style="--i:7;">8</div>
+      <div class="segmento" style="--i:8;">9</div>
+      <div class="segmento" style="--i:9;">10</div>
+    </div>
+    <div class="flecha"></div>
+  </div>
+  <button class="btn" onclick="girarRuletaVisual()" id="btnRuletaVisual">Girar Ruleta</button>
+  <div class="message" id="msgRuletaVisual"></div>
+  <button class="btn secondary" onclick="volverMenu()">🔙 Volver al menú</button>
+</div>
+
+
+  <script src="codex.js"></script>
+</body>
+</html>
